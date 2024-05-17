@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #333; 
+    background-color: #f9f9f9; 
+}
+
 img {
     width: 100%;
 }
@@ -11,13 +17,14 @@ img {
 .wrapper {
     max-width: 1300px;
     margin: 0 auto;
-    padding:  0 160px;
+    padding:  0 20px;
 }
 
 header {
     width: 100%;
     position: fixed;
     z-index: 100;
+    background-color: white;
 }
 
 header h2 {
@@ -25,7 +32,7 @@ header h2 {
     font-size: 30px;
     padding-left: 10px;
     font-weight: 500;
-    background-color: white;
+
 }
 
 header nav {
@@ -64,23 +71,24 @@ header nav ul li a {
     margin-top: 10px;
 }
 
-.new-article a {
+article a {
     text-decoration: none;
     color:darkgoldenrod;
     display: block;
     margin-top: 10px;
 }
 
-.new-article a::after {
+article a::after {
     content: "";
     display: block;
     width: 80px;
     background-color: darkgoldenrod;
     height: 1px;
-    margin: 0;
-}
+    margin: 0 auto;
+} 
 .container {
     display: flex;
+    justify-content: space-between;
 }
 
 main {
@@ -89,4 +97,170 @@ main {
 
 main article{
     margin-bottom: 50px;
+}
+
+main h1 {
+    font-size: 30px;
+}
+
+main ul {
+    list-style: none;
+    display: flex;
+    padding: 10px 0 10px 0;
+}
+
+main ul li {
+    margin-right: 40px;
+}
+
+main img {
+    width:100%;
+}
+
+main .article-intro {
+    text-align: center;
+}
+
+main .article-intro p {
+    font-weight: bold;
+    padding: 10px 85px 30px 40px;
+}
+
+aside {
+    flex: 0.33;
+}
+
+aside .author {
+    text-align: center;
+    margin-bottom: 50px;
+}
+aside .author img {
+    width: 50%;
+    border-radius: 100%;
+}
+
+aside .author h4 {
+    margin: 20px;
+}
+
+.author p {
+    max-width: 300px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.ranking h4 {
+    text-align: center;
+}
+
+.ranking-article a {
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+.ranking-article a img {
+    padding: 5px;
+}
+
+.ranking-article p {
+    text-align: center;
+    padding-right: 10px;
+    margin-bottom: 10px;
+}
+
+.contact h4{
+    text-align: center;
+}
+
+.contact ul li{
+    list-style: none;
+}
+
+footer {
+    text-align: center;
+    max-width: 100%;
+    background-color: pink;
+    margin-top: 20px;
+}
+
+.form {
+    padding-top: 120px;
+    background-color: #ffe6f0;
+    border-radius: 8px;
+    padding-bottom: 10px;
+}
+
+.form h1 {
+    color: #ff4081;    
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.form-group {
+    margin-bottom: 20px; 
+    text-align: center;
+}
+
+.form label {
+    display: block;
+    font-family: 'Open Sans', sans-serif; 
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.form input[type="text"],
+.form input[type="date"],
+.form input[type="file"],
+.form select,
+.form textarea {
+    width: 100%; 
+    padding: 10px;
+    border: 1px solid #ff99cc; 
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 10px;
+}
+
+.form textarea {
+    resize: vertical; 
+}
+
+.form input[type="submit"] {
+    background-color: #ff4081; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Open Sans', sans-serif; 
+    font-weight: 600;
+    
+}
+
+@media screen and (max-width: 768px) {
+    .new-article {
+        flex-direction: column;
+    }
+
+    .new-article article {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    main article img{
+       width: 100%;
+       margin-left: 15px;
+    }
+
+    aside .ranking img {
+        width: 100%;
+        margin-left: 15px;
+    }
 }
