@@ -25,6 +25,7 @@ header {
     position: fixed;
     z-index: 100;
     background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 header h2 {
@@ -196,6 +197,7 @@ footer {
     font-size: 36px;
     text-align: center;
     margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 .form-group {
     margin-bottom: 20px; 
@@ -256,11 +258,11 @@ footer {
 
     main article img{
        width: 100%;
-       margin-left: 15px;
+       padding-left: 15px;
     }
 
     aside .ranking img {
         width: 100%;
-        margin-left: 15px;
+        padding-left: 15px;
     }
 }

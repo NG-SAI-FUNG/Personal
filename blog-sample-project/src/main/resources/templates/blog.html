@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/blog.css}">
+    <title>Food Blog</title>
+</head>
+<body>
+    <header>
+        <div class="wrapper">
+            <h2 th:text="${userName} + 'さんの料理ブログ'"> </h2>
+        </div>
+
+        <nav>
+            <ul class="wrapper">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="new-article wrapper">
+        <article>
+            <img src="/img/anime.jpg" alt="">   
+            <p>space for blog message</p>
+            <div>
+                <a href="#">もっと読む</a>
+            </div>
+        </article>
+        <article>
+            <img src="/img/anime.jpg" alt="">   
+            <p>space for blog message</p>
+            <div>
+                <a href="#">もっと読む</a>
+            </div>
+        </article>
+        <article>
+            <img src="/img/anime.jpg" alt="">
+            <p>space for blog message</p>
+            <div>
+                <a href="#">もっと読む</a>
+            </div> 
+        </article>
+    </div>
+
+    <div class="container wrapper">
+        <main>
+            <article>
+                <h1>Blog Title</h1>
+                <ul>
+                    <li>2023/05/16</li>
+                    <li>カテゴリー</li>
+                </ul>
+                <img src="./img/anime.jpg" alt="">
+                <div class="article-intro">
+                    <p>
+                        more space for blog message
+                    </p>
+                    <a href="#">もっと読む</a>              
+                </div>
+            </article>
+            <article>
+                <h1>Blog Title</h1>
+                <ul>
+                    <li>2023/05/16</li>
+                    <li>カテゴリー</li>
+                </ul>
+                <img src="./img/anime.jpg" alt="">
+                <div class="article-intro">
+                    <p>
+                        more space for blog message
+                    </p>
+                    <a href="#">もっと読む</a>              
+                </div>
+            </article>
+            <article>
+                <h1>Blog Title</h1>
+                <ul>
+                    <li>2023/05/16</li>
+                    <li>カテゴリー</li>
+                </ul>
+                <img src="./img/anime.jpg" alt="">
+                <div class="article-intro">
+                    <p>
+                        more space for blog message
+                    </p>
+                    <a href="#">もっと読む</a>              
+                </div>
+            </article>
+        </main>
+        <aside>
+            <section class="author">
+                <img  src="./img/anime.jpg" alt="">
+                <h4>Ng Sai Fung</h4>
+                <p>This space is for author self-introduction</p>
+            </section>
+            <section class="ranking">
+                <h4>Ranking</h4>
+                <div class="ranking-article">
+                    <a href="#"></a>
+                    <img src="./img/anime.jpg" alt="" />
+                    <p>Blog title</p>
+                </div>
+                <div class="ranking-article">
+                    <a href="#"></a>
+                    <img src="./img/anime.jpg" alt="" />
+                    <p>Blog title</p>
+                </div>
+                <div class="ranking-article">
+                    <a href="#"></a>
+                    <img src="./img/anime.jpg" alt="" />
+                    <p>Blog title</p>
+                </div>
+            </section>
+            <section class="contact">
+                <h4>contact</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">YouTube</a></li>
+                </ul>
+            </section>
+        </aside>
+
+    </div>        
+    <footer>
+        <p>Copyright &copy; Ng Sai Fung 2024</p>
+    </footer>
+</body>
+</html>
