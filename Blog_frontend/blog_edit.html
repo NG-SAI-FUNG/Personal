@@ -54,10 +54,17 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="submit"  value="更新">
-                    <input type="submit" formaction="" value="削除">
+                    <input type="hidden" name="blogId" th:value="#">
+                    <button>更新</button>
+                    <button style="background-color:#4d79ff;">戻る</button>
                 </div>
             </form>
+            <form action="#" method="post">
+                <div class="form-group">
+                <input type="hidden" name="blogId" th:value="#">
+                <button style="background-color:#ff4d4d;">削除</button>
+            </div>
+        </form>
         </div>
     </main>
     <footer>

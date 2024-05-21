@@ -230,7 +230,8 @@ footer {
     resize: vertical; 
 }
 
-.form input[type="submit"] {
+.form input[type="submit"],
+	button {
     background-color: #ff4081; 
     color: white;
     padding: 10px 20px;

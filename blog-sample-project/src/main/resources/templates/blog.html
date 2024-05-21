@@ -14,104 +14,51 @@
 
         <nav>
             <ul class="wrapper">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Blog</a></li>
+                <li><a th:href="@{/blog/list}">Home</a></li>
+                <li><a th:href="@{/blog/register}">Blog</a></li>
                 <li><a href="#">Logout</a></li>
             </ul>
         </nav>
     </header>
 
     <div class="new-article wrapper">
-        <article>
-            <img src="/img/anime.jpg" alt="">   
-            <p>space for blog message</p>
+        <article th:each="blog:${blogList}">
+            <img th:src="@{/blog_img/{imagePath}(imagePath=${blog.blogImage})}" alt="">   
+            <p th:text="${blog.message}"></p>
             <div>
-                <a href="#">もっと読む</a>
+                <a th:href="@{/blog/edit/{blogId}(blogId=${blog.blogId})}">もっと読む</a>
             </div>
-        </article>
-        <article>
-            <img src="/img/anime.jpg" alt="">   
-            <p>space for blog message</p>
-            <div>
-                <a href="#">もっと読む</a>
-            </div>
-        </article>
-        <article>
-            <img src="/img/anime.jpg" alt="">
-            <p>space for blog message</p>
-            <div>
-                <a href="#">もっと読む</a>
-            </div> 
         </article>
     </div>
 
     <div class="container wrapper">
         <main>
-            <article>
-                <h1>Blog Title</h1>
+            <article th:each="blog:${blogList}">
+                <h1 th:text="${blog.blogTitle}"></h1>
                 <ul>
-                    <li>2023/05/16</li>
-                    <li>カテゴリー</li>
+                    <li th:text="${blog.blogDate}"></li>
+                    <li th:text="${blog.categoryName}"></li>
                 </ul>
-                <img src="./img/anime.jpg" alt="">
+                <img th:src="@{/blog_img/{imagePath}(imagePath=${blog.blogImage})}" alt="">
                 <div class="article-intro">
-                    <p>
-                        more space for blog message
-                    </p>
-                    <a href="#">もっと読む</a>              
-                </div>
-            </article>
-            <article>
-                <h1>Blog Title</h1>
-                <ul>
-                    <li>2023/05/16</li>
-                    <li>カテゴリー</li>
-                </ul>
-                <img src="./img/anime.jpg" alt="">
-                <div class="article-intro">
-                    <p>
-                        more space for blog message
-                    </p>
-                    <a href="#">もっと読む</a>              
-                </div>
-            </article>
-            <article>
-                <h1>Blog Title</h1>
-                <ul>
-                    <li>2023/05/16</li>
-                    <li>カテゴリー</li>
-                </ul>
-                <img src="./img/anime.jpg" alt="">
-                <div class="article-intro">
-                    <p>
-                        more space for blog message
-                    </p>
-                    <a href="#">もっと読む</a>              
+                    <p th:text="${blog.message}"></p>
+                    <a th:href="@{/blog/edit/{blogId}(blogId=${blog.blogId})}">もっと読む</a>              
                 </div>
             </article>
         </main>
         <aside>
             <section class="author">
-                <img  src="./img/anime.jpg" alt="">
+                <img  th:src="@{/img/anime.jpg}" alt="">
                 <h4>Ng Sai Fung</h4>
                 <p>This space is for author self-introduction</p>
             </section>
             <section class="ranking">
                 <h4>Ranking</h4>
-                <div class="ranking-article">
-                    <a href="#"></a>
-                    <img src="./img/anime.jpg" alt="" />
-                    <p>Blog title</p>
-                </div>
-                <div class="ranking-article">
-                    <a href="#"></a>
-                    <img src="./img/anime.jpg" alt="" />
-                    <p>Blog title</p>
-                </div>
-                <div class="ranking-article">
-                    <a href="#"></a>
-                    <img src="./img/anime.jpg" alt="" />
-                    <p>Blog title</p>
+                <div class="ranking-article" th:each="blog:${blogList}">
+                    <a th:href="@{/blog/edit/{blogId}(blogId=${blog.blogId})}">
+                    <img th:src="@{/blog_img/{imagePath}(imagePath=${blog.blogImage})}" alt="" />
+                    <p th:text="${blog.blogTitle}"></p>
+					</a>
                 </div>
             </section>
             <section class="contact">

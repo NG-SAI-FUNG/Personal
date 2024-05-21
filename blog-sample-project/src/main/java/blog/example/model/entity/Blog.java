@@ -37,8 +37,7 @@ public class Blog {
 	private String message;
 	
 	@NonNull
-	@Temporal(TemporalType.DATE)
-	private Date blogDate;
+	private String blogDate;
 	
 	@NonNull
 	private String authorImage;
@@ -47,6 +46,22 @@ public class Blog {
 	private String authorMessage;
 	
 	private Long userId;
+
+	public Blog(@NonNull String blogImage, @NonNull String blogTitle, @NonNull String categoryName,
+			@NonNull String message, @NonNull String blogDate, Long userId) {
+		this.blogImage = blogImage;
+		this.blogTitle = blogTitle;
+		this.categoryName = categoryName;
+		this.message = message;
+		this.blogDate = blogDate;
+		this.userId = userId;
+	}
+
+	public Blog(@NonNull String authorImage, @NonNull String authorMessage, Long userId) {
+		this.authorImage = authorImage;
+		this.authorMessage = authorMessage;
+		this.userId = userId;
+	}
 
 	
 }
