@@ -25,6 +25,7 @@
         <div class="form wrapper">
             <h1>新しい記事の追加</h1>
             <form action="#" method="POST" enctype="multipart/form-data">
+                <p class="error-message" th:if="${error}">Blog title is not available.Please change to another title.</p>
                 <div class="form-group">
                     <label for="title">Title:</label>
                     <input type="text" id="title" name="blogTitle" required>

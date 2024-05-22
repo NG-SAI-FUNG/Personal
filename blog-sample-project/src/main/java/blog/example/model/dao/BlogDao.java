@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import blog.example.model.entity.Blog;
+import blog.example.model.entity.Users;
 
 @Repository
 public interface BlogDao extends JpaRepository<Blog, Long> {
@@ -28,5 +29,7 @@ public interface BlogDao extends JpaRepository<Blog, Long> {
 	// 削除使用します
 	void deleteByBlogId(Long blogId);
 	
-	
+	// SELECT * FROM blog WHERE user_title = ?
+	// ユーザーの登録処理をするときに、同じメールアドレスがあったらば登録させないようにする
+	// 1行だけしかレコードは取得できない
 }

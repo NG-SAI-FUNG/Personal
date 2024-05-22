@@ -16,7 +16,7 @@
             <ul class="wrapper">
                 <li><a th:href="@{/blog/list}">Home</a></li>
                 <li><a th:href="@{/blog/register}">Blog</a></li>
-                <li><a href="#">Logout</a></li>
+                <li><a th:href="@{/admin/logout}">Logout</a></li>
             </ul>
         </nav>
     </header>
@@ -24,6 +24,7 @@
     <main>
         <div class="form wrapper">
             <h1>新しい記事の追加</h1>
+			<p th:if="${error}">Blog title is not available.Please change to another title.</p>
             <form th:action="@{/blog/register/process}" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="title">Title:</label>

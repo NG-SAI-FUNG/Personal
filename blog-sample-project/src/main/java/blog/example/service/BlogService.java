@@ -1,6 +1,5 @@
 package blog.example.service;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import blog.example.model.dao.BlogDao;
 import blog.example.model.entity.Blog;
+import jakarta.transaction.Transactional;
 
 @Service
 public class BlogService {
@@ -41,6 +41,17 @@ public class BlogService {
 		}
 	}
 	
+	// edit画面表示するときのチェック
+	// if , blogId = null -> nullで返す
+	// if not , findByBlogId(DBのID）controllerに渡す 
+	public Blog blogEditCheck(Long blogId) {
+		if(blogId == null) {
+			return null;
+		}else {
+			return blogDao.findByBlogId(blogId);
+		}
+	}
+	
 	// 編集処理のチェック
 	// もし、blogId == nullだったら、更新処理しない(falseを返す）
 	// そうでない場合, 更新処理をする
@@ -70,6 +81,7 @@ public class BlogService {
 	// if, controller からもらったblogId == null だったら
 	// 削除できないで false
 	// not の場合は deleteByBlogidで削除します
+	@Transactional
 	public boolean deleteBlog(Long blogId) {
 		if(blogId == null) {
 			return false;

@@ -38,6 +38,7 @@ public class BlogRegisterController {
 		if ( users == null) {
 			return "redirect:/admin/login";
 		}else {
+			model.addAttribute("error", false);
 			model.addAttribute("userName", users.getUserName());
 			return "blog_register";
 		}
@@ -50,7 +51,8 @@ public class BlogRegisterController {
 			@RequestParam String blogTitle,
 			@RequestParam String categoryName,
 			@RequestParam String message,
-			@RequestParam String blogDate) {
+			@RequestParam String blogDate,
+			Model model) {
 		// セッションからログインしている人情報をusersという変数に格納
 		Users users =  (Users) session.getAttribute("loginSession");
 		// if users = null -> login.html
@@ -74,6 +76,8 @@ public class BlogRegisterController {
 			if(blogSerivce.createBlog(fileName, blogTitle, categoryName, message, blogDate, users.getUserId())) {
 				return "redirect:/blog/list";
 			}else {
+				model.addAttribute("userName", users.getUserName());
+				model.addAttribute("error", true);
 				return "blog_register";
 			}
 		}
