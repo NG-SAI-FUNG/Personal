@@ -46,11 +46,11 @@
                 </div>
             </article>
         </main>
-        <aside>
+        <aside th:each="profile:${profile}">
             <section class="author">
-                <img  th:src="@{/img/anime.jpg}" alt="">
-                <h4>Ng Sai Fung</h4>
-                <p>This space is for author self-introduction</p>
+                <a th:href="@{/blog/profile}"><img  th:src="@{/profile_img/{imagePath}(imagePath=${profile.profileImage})}" alt=""></a>
+                <h4 th:text="${userName}"> </h4>
+                <p th:text="${profile.profileMessage}"> </p>
             </section>
             <section class="ranking">
                 <h4>Ranking</h4>

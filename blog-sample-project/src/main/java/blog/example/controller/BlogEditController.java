@@ -79,7 +79,7 @@ public class BlogEditController {
 				e.printStackTrace();
 			}
 			
-			if(blogService.BlogUpdate(blogId, fileName, blogTitle, categoryName, message, blogDate, users.getUserId())) {
+			if(blogService.blogUpdate(blogId, fileName, blogTitle, categoryName, message, blogDate, users.getUserId())) {
 				return "redirect:/blog/list";
 			} else {
 				return "redirect:/blog/edit" + blogId;

@@ -58,7 +58,7 @@ public class BlogService {
 	
 	// コントローラークラスからもらった,blogIdを使って,編集する前の,でデータを取得
 	// 変更するべきところだけ、セッターを使用してデータの更新をしてから, Trueを返す
-	public boolean BlogUpdate(Long blogId,
+	public boolean blogUpdate(Long blogId,
 			String blogImage, String blogTitle,
 			String categoryName, String message,
 			String blogDate,Long userId) {

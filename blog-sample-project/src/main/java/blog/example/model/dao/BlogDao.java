@@ -13,7 +13,7 @@ public interface BlogDao extends JpaRepository<Blog, Long> {
 	// 保存処理と更新処理 insertとupdate
 	Blog save(Blog blog);
 	
-	// SELECT * FROM products
+	// SELECT * FROM blog
 	// ブログ一覧を表示させるときに使用
 	List<Blog>findAll();
 	
