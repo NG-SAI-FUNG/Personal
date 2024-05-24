@@ -25,6 +25,17 @@ public class BlogService {
 		}
 	}
 	
+	// 検索のチェック
+	// もしcategoryName == null 戻り値としてnull
+	// findByCategoryName内容をコントローラークラスに渡す
+		public List<Blog>selectCategory(String categoryName){
+			if(categoryName == null) {
+				return null;
+			}else {
+				return blogDao.findByCategoryName(categoryName);
+			}
+		}
+	
 	// ブログの登録処理チェック
 	// もし、findbyBlogNameが　== nullだったら、
 	// trueだったら 保存処理

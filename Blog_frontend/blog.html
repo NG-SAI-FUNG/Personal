@@ -47,6 +47,17 @@
 
     <div class="container wrapper">
         <main>
+            <div class="search-container">
+                <form th:action="@{/blog/list}" method="get">
+                    <select id="searchInput" name="categoryName" required>
+                        <option value="">Select a category...</option>
+                        <option value="Chinese">Chinese</option>
+                        <option value="Japanese">Japanese</option>
+                        <option value="Western">Western</option>
+                    </select>
+                    <button type="submit">Search</button>
+                </form>
+            </div>
             <article>
                 <h1>Blog Title</h1>
                 <ul>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/blog.css}">
-    <title>Author Profile</title>
+    <title>Profile Edit</title>
 </head>
 <body>
     <header>
@@ -23,18 +23,18 @@
     </header>
     <main>
         <div class="form wrapper">
-            <h1>自己紹介登録</h1>
-            <form th:action="@{/blog/profile/process}" method="POST" enctype="multipart/form-data">
+            <h1>自己紹介編集</h1>
+            <form th:action="@{/blog/profile/edit/process}" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="image">Upload New Image:</label>
                     <input type="file" id="image" name="profileImage" accept="image/*">
                 </div>
                 <div class="form-group">
                     <label for="description">Message:</label>
-                    <textarea id="description" name="profileMessage" rows="15" cols="33" required></textarea>
+                    <textarea id="description" name="profileMessage" rows="15" cols="33" th:text="${profile.profileMessage}"required></textarea>
                 </div>
                 <div class="form-group">
-                    <input type="hidden">
+                    <input type="hidden" name="profileId" th:value="${profile.profileId}">
                     <button>確定</button>
                 </div>
             </form>

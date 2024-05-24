@@ -15,6 +15,7 @@
         <nav>
             <ul class="wrapper">
                 <li><a th:href="@{/blog/list}">Home</a></li>
+				<li><a th:href="@{/blog/profile}">Profile</a></li>
                 <li><a th:href="@{/blog/register}">Blog</a></li>
                 <li><a th:href="@{/admin/logout}">Logout</a></li>
             </ul>
@@ -23,7 +24,7 @@
 
     <div class="new-article wrapper">
         <article th:each="blog:${blogList}">
-            <img th:src="@{/blog_img/{imagePath}(imagePath=${blog.blogImage})}" alt="">   
+            <img th:src="@{/blog_img/{imagePath}(imagePath=${blog.blogImage})}" alt="">  
             <p th:text="${blog.message}"></p>
             <div>
                 <a th:href="@{/blog/edit/{blogId}(blogId=${blog.blogId})}">もっと読む</a>
@@ -33,6 +34,17 @@
 
     <div class="container wrapper">
         <main>
+			<div class="search-container">
+			    <form th:action="@{/blog/list}" method="get">
+			        <select id="searchInput" name="categoryName" required>
+			            <option value="">Category...</option>
+			            <option value="Chinese">Chinese</option>
+			            <option value="Japanese">Japanese</option>
+			            <option value="Western">Western</option>
+			        </select>
+			        <button type="submit">Search</button>
+			    </form>
+			</div>
             <article th:each="blog:${blogList}">
                 <h1 th:text="${blog.blogTitle}"></h1>
                 <ul>
@@ -46,11 +58,22 @@
                 </div>
             </article>
         </main>
-        <aside th:each="profile:${profile}">
+        <aside>
             <section class="author">
-                <a th:href="@{/blog/profile}"><img  th:src="@{/profile_img/{imagePath}(imagePath=${profile.profileImage})}" alt=""></a>
-                <h4 th:text="${userName}"> </h4>
-                <p th:text="${profile.profileMessage}"> </p>
+				<h4>Author</h4>
+				<!-- profileIdがnullでない場合の表示 -->
+				    <div th:if="${profile.profileId != null}">
+				        <a th:href="@{/blog/profile/edit/{profileId}(profileId=${profile.profileId})}">
+				            <img th:src="@{/profile_img/{imagePath}(imagePath=${profile.profileImage})}" alt="">
+				        </a>
+				        <h4 th:text="${userName}"> </h4>
+				        <p th:text="${profile.profileMessage}"> </p>
+				    </div>
+				    
+				    <!-- profileIdがnullの場合の表示 -->
+				    <div th:if="${profile.profileId == null}">
+				        <p th:text="${profile.profileMessage}"> </p>
+				    </div>
             </section>
             <section class="ranking">
                 <h4>Ranking</h4>
@@ -71,9 +94,8 @@
                 </ul>
             </section>
         </aside>
-
-    </div>        
-    <footer>
+	</div>
+	<footer>
         <p>Copyright &copy; Ng Sai Fung 2024</p>
     </footer>
 </body>

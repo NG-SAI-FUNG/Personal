@@ -17,11 +17,11 @@ public class ProfileService {
 		// プロファイルの一覧のチェック
 		// もしprofileId == null 戻り値としてnull
 		// findAll内容をコントローラークラスに渡す
-		public List<Profile> showProfile(Long userId){
+		public Profile showProfile(Long userId){
 			if(userId == null) {
 				return null;
 			}else {
-				return profileDao.findAll();
+				return profileDao.findByUserId(userId);
 			}
 		}
 		
@@ -32,11 +32,19 @@ public class ProfileService {
 		// if, profileImage = null -> profile save
 		// if not, そのprofileIdの内容を編集可能になります。
 		public boolean createProfile(String profileImage,String profileMessage,Long userId) {
-			if(profileDao.findByProfileImage(profileImage) == null) {
+			if(profileDao.findByUserId(userId) == null) {
 				profileDao.save(new Profile(profileImage, profileMessage, userId));
 				return true;
 			}else {
 				return false;
+			}
+		}
+		
+		public Profile profileEditCheck(Long profileId) {
+			if(profileId == null) {
+				return null;
+			}else {
+				return profileDao.findByProfileId(profileId);
 			}
 		}
 		
@@ -56,22 +64,4 @@ public class ProfileService {
 			}
 		}
 		
-		// profile編集画面表示するときのチェック
-		// if , profileId = null -> null;
-		// if not , findByProfileIDでcontrollerに返す
-		public Profile profileEditCheck(Long profileId) {
-			if (profileId == null ) {
-				return null;
-			}else {
-				return profileDao.findByProfileId(profileId);
-			}
-		}
-		
-		public Profile getProfileByImage(String profileImage) {
-	        return profileDao.findByProfileImage(profileImage);
-	    }
-		
-		public Profile getProfileByUserId(Long userId) {
-			return profileDao.findByUserId(userId);
-	    }
 }
